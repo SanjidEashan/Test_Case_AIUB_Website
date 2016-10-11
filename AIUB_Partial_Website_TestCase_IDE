@@ -1,0 +1,112 @@
+package com.example.tests;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class AIUBPartialWebsiteTestCaseIDE {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://www.aiub.edu/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testAIUBPartialWebsiteTestCaseIDE() throws Exception {
+    driver.get(baseUrl + "/");
+    driver.findElement(By.linkText("Information")).click();
+    driver.findElement(By.linkText("General Information")).click();
+    driver.findElement(By.linkText("Why Study Here")).click();
+    driver.findElement(By.linkText("Resources")).click();
+    driver.findElement(By.linkText("Career")).click();
+    driver.findElement(By.xpath("(//a[contains(text(),'Convocation')])[2]")).click();
+    driver.findElement(By.linkText("Video")).click();
+    driver.findElement(By.linkText("Academic Regulations")).click();
+    driver.findElement(By.linkText("Courses & Tuition Fees")).click();
+    driver.findElement(By.linkText("Academic Calendar")).click();
+    driver.findElement(By.linkText("The Vice Chancellor")).click();
+    driver.findElement(By.linkText("The Chairman")).click();
+    driver.findElement(By.linkText("The Founders")).click();
+    driver.findElement(By.linkText("Faculty of Science & Information Technology")).click();
+    driver.findElement(By.linkText("About Us")).click();
+    driver.findElement(By.linkText("Contact Us")).click();
+    driver.findElement(By.linkText("Our Objectives")).click();
+    driver.findElement(By.linkText("Faculty Members")).click();
+    driver.findElement(By.linkText("Administrative Staff")).click();
+    driver.findElement(By.linkText("Technical Staff")).click();
+    driver.findElement(By.linkText("Course Catalog")).click();
+    driver.findElement(By.linkText("Undergraduate Catalog")).click();
+    driver.findElement(By.linkText("Graduate Catalog")).click();
+    driver.findElement(By.linkText("Undergraduate Course Offerings")).click();
+    driver.findElement(By.linkText("Graduate Course Offerings")).click();
+    driver.findElement(By.linkText("Admission")).click();
+    driver.findElement(By.linkText("The Founders")).click();
+    driver.findElement(By.linkText("Office of Planning & Development (OPD)")).click();
+    driver.findElement(By.linkText("Office of Cultural Affairs (OCA)")).click();
+    driver.findElement(By.linkText("Office of Sports (OS)")).click();
+    driver.findElement(By.linkText("Office of Probation (OP)")).click();
+    driver.findElement(By.linkText("Office of Placement & Alumni (OPA)")).click();
+    driver.findElement(By.linkText("Office of Students Affairs (OSA)")).click();
+    driver.findElement(By.linkText("AIUB Center for Research and Excellence (ACRE)")).click();
+    driver.findElement(By.linkText("AIUB Center for Research and Excellence (ACRE)")).click();
+    driver.findElement(By.linkText("Office of Public Relations (OPR)")).click();
+    driver.findElement(By.linkText("Office of Finance and Audit (OFA)")).click();
+    driver.findElement(By.linkText("Institutional Quality Assurance Cell (AIUB-IQAC)")).click();
+    driver.findElement(By.linkText("Admission")).click();
+    driver.findElement(By.linkText("Contact")).click();
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}
